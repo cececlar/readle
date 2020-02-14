@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import AboutUs from './components/AboutUs';
-import SearchTitles from './components/SearchTitles';
-import Book from './components/Book'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AboutUs from "./components/AboutUs";
+import SearchTitles from "./components/SearchTitles";
+import Book from "./components/Book";
 
 export default function App() {
   return (
@@ -30,9 +25,9 @@ export default function App() {
           <Route path="/about">
             <AboutUs />
           </Route>
-          {/* <Route path="/book/:isbn">
+          <Route path="/book/:isbn">
             <Book />
-          </Route> */}
+          </Route>
           <Route path="/">
             <SearchTitles />
           </Route>
