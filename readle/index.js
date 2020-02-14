@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const path = require("path");
 const app = express();
+const readleRouter = require("./routes/readle");
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
@@ -14,14 +15,8 @@ if (process.env.NODE_ENV === "production") {
     response.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
-
-// JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-app.get("/api/demo", (request, response) => {
-  response.json({
-    message: "Hello from server.js"
-  });
-});
-// END DEMO
+app.use(express.json());
+app.use(readleRouter);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
