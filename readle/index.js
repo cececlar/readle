@@ -6,6 +6,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const readleRouter = require("./routes/readle");
+const cors = require("cors");
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === "production") {
     response.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
+app.use(cors());
 app.use(express.json());
 app.use(readleRouter);
 
